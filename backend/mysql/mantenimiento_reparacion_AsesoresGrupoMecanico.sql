@@ -24,29 +24,29 @@ SET @@SESSION.SQL_LOG_BIN= 0;
 SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ '';
 
 --
--- Table structure for table `Mecaninos`
+-- Table structure for table `AsesoresGrupoMecanico`
 --
 
-DROP TABLE IF EXISTS `Mecaninos`;
+DROP TABLE IF EXISTS `AsesoresGrupoMecanico`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Mecaninos` (
-  `idMecaninos` int NOT NULL AUTO_INCREMENT,
-  `idTrabajadores_FK` int NOT NULL,
-  PRIMARY KEY (`idMecaninos`),
-  UNIQUE KEY `idMecaninos_UNIQUE` (`idMecaninos`),
-  KEY `idTrabajadores_FK_idx` (`idTrabajadores_FK`),
-  CONSTRAINT `idTrabajadores_FK` FOREIGN KEY (`idTrabajadores_FK`) REFERENCES `Trabajadores` (`idTrabajadores`)
+CREATE TABLE `AsesoresGrupoMecanico` (
+  `idAsesor_FK` int DEFAULT NULL,
+  `idMecanico_FK` int DEFAULT NULL,
+  KEY `idAsesor_FK_idx` (`idAsesor_FK`),
+  KEY `idMecanico_FK_idx` (`idMecanico_FK`),
+  CONSTRAINT `idAsesor_FK` FOREIGN KEY (`idAsesor_FK`) REFERENCES `Trabajadores` (`idTrabajadores`),
+  CONSTRAINT `idMecanico_FK` FOREIGN KEY (`idMecanico_FK`) REFERENCES `Trabajadores` (`idTrabajadores`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Mecaninos`
+-- Dumping data for table `AsesoresGrupoMecanico`
 --
 
-LOCK TABLES `Mecaninos` WRITE;
-/*!40000 ALTER TABLE `Mecaninos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Mecaninos` ENABLE KEYS */;
+LOCK TABLES `AsesoresGrupoMecanico` WRITE;
+/*!40000 ALTER TABLE `AsesoresGrupoMecanico` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AsesoresGrupoMecanico` ENABLE KEYS */;
 UNLOCK TABLES;
 SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -59,4 +59,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-18  0:14:05
+-- Dump completed on 2022-03-29 16:05:58

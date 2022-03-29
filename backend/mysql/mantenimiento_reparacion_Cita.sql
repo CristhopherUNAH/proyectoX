@@ -32,27 +32,11 @@ DROP TABLE IF EXISTS `Cita`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Cita` (
   `idCita` int NOT NULL AUTO_INCREMENT,
-  `idCliente_FK` int NOT NULL,
-  `idPlaca_FK` int NOT NULL,
-  `fechaHoraEntrada` datetime NOT NULL,
-  `mantenimiento` int NOT NULL,
-  `reparacion` varchar(200) NOT NULL,
-  `Telefono` varchar(15) NOT NULL,
-  `fechaEntrega` date NOT NULL,
-  `registrado` tinyint NOT NULL,
-  `idAsesor_FK` int NOT NULL,
-  `idMecanico_FK` int NOT NULL,
-  `estado` varchar(45) NOT NULL,
+  `idClientes_FK` int NOT NULL,
   PRIMARY KEY (`idCita`),
   UNIQUE KEY `idCita_UNIQUE` (`idCita`),
-  KEY `idCliente_FK_idx` (`idCliente_FK`),
-  KEY `idPlaca_FK_idx` (`idPlaca_FK`),
-  KEY `idAsesor_FK_idx` (`idAsesor_FK`),
-  KEY `idMecanico_FK_idx` (`idMecanico_FK`),
-  CONSTRAINT `idAsesor_FK` FOREIGN KEY (`idAsesor_FK`) REFERENCES `Trabajadores` (`idTrabajadores`),
-  CONSTRAINT `idCliente_FK` FOREIGN KEY (`idCliente_FK`) REFERENCES `Cliente` (`idCliente`),
-  CONSTRAINT `idMecanico_FK` FOREIGN KEY (`idMecanico_FK`) REFERENCES `Mecaninos` (`idMecaninos`),
-  CONSTRAINT `idPlaca_FK` FOREIGN KEY (`idPlaca_FK`) REFERENCES `Auto` (`idPlaca`)
+  KEY `idClientes_FK_idx` (`idClientes_FK`),
+  CONSTRAINT `idClientes_FK` FOREIGN KEY (`idClientes_FK`) REFERENCES `Clientes` (`idClientes`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -75,4 +59,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-18  0:14:09
+-- Dump completed on 2022-03-29 16:05:54

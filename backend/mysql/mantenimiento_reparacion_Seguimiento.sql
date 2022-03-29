@@ -24,32 +24,30 @@ SET @@SESSION.SQL_LOG_BIN= 0;
 SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ '';
 
 --
--- Table structure for table `Cliente`
+-- Table structure for table `Seguimiento`
 --
 
-DROP TABLE IF EXISTS `Cliente`;
+DROP TABLE IF EXISTS `Seguimiento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Cliente` (
-  `idCliente` int NOT NULL AUTO_INCREMENT,
-  `primerNombre` varchar(45) NOT NULL,
-  `segundoNombre` varchar(45) NOT NULL,
-  `primerApellido` varchar(45) NOT NULL,
-  `segundoApellido` varchar(45) NOT NULL,
-  `dirreccion` varchar(45) NOT NULL,
-  `correoElectronico` varchar(45) NOT NULL,
-  PRIMARY KEY (`idCliente`),
-  UNIQUE KEY `idCliente_UNIQUE` (`idCliente`)
+CREATE TABLE `Seguimiento` (
+  `numero` int NOT NULL,
+  `idCitas_FK` int NOT NULL,
+  `idCliente_FK` int NOT NULL,
+  KEY `idCitas_FK_idx` (`idCitas_FK`),
+  KEY `idCliente_FK_idx` (`idCliente_FK`),
+  CONSTRAINT `idCitas_FK` FOREIGN KEY (`idCitas_FK`) REFERENCES `Cita` (`idCita`),
+  CONSTRAINT `idCliente_FK` FOREIGN KEY (`idCliente_FK`) REFERENCES `Clientes` (`idClientes`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Cliente`
+-- Dumping data for table `Seguimiento`
 --
 
-LOCK TABLES `Cliente` WRITE;
-/*!40000 ALTER TABLE `Cliente` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Cliente` ENABLE KEYS */;
+LOCK TABLES `Seguimiento` WRITE;
+/*!40000 ALTER TABLE `Seguimiento` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Seguimiento` ENABLE KEYS */;
 UNLOCK TABLES;
 SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -62,4 +60,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-18  0:14:14
+-- Dump completed on 2022-03-29 16:05:51

@@ -24,28 +24,32 @@ SET @@SESSION.SQL_LOG_BIN= 0;
 SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ '';
 
 --
--- Table structure for table `Auto`
+-- Table structure for table `Clientes`
 --
 
-DROP TABLE IF EXISTS `Auto`;
+DROP TABLE IF EXISTS `Clientes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Auto` (
-  `idPlaca` varchar(45) NOT NULL,
-  `modelo` varchar(45) NOT NULL,
-  `numeroMotor` int NOT NULL,
-  PRIMARY KEY (`idPlaca`),
-  UNIQUE KEY `idAuto_UNIQUE` (`idPlaca`)
+CREATE TABLE `Clientes` (
+  `idClientes` int NOT NULL AUTO_INCREMENT,
+  `primerNombre` varchar(45) NOT NULL,
+  `segundoNombre` varchar(45) NOT NULL,
+  `primerApellido` varchar(45) NOT NULL,
+  `segundoApellido` varchar(45) NOT NULL,
+  `dirreccion` varchar(45) NOT NULL,
+  `correoElectronico` varchar(45) NOT NULL,
+  PRIMARY KEY (`idClientes`),
+  UNIQUE KEY `idClientes_UNIQUE` (`idClientes`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Auto`
+-- Dumping data for table `Clientes`
 --
 
-LOCK TABLES `Auto` WRITE;
-/*!40000 ALTER TABLE `Auto` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Auto` ENABLE KEYS */;
+LOCK TABLES `Clientes` WRITE;
+/*!40000 ALTER TABLE `Clientes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +62,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-29 16:06:11
+-- Dump completed on 2022-03-29 16:06:01
